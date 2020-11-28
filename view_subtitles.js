@@ -15,7 +15,7 @@ else {
         iframe = document.createElement("iframe");
         const div = document.createElement("div");
         const text = document.createElement("p");
-        text.innerText = "HI THERE"
+        text.innerText = "Loading..."
         document.documentElement.appendChild(iframe);
         iframe.contentDocument.body.appendChild(div);
         div.appendChild(text);
@@ -29,6 +29,12 @@ else {
         div.style.width = "100%";
         div.style.height = "100%";
         text.style.color = "white";
+        chrome.runtime.sendMessage(
+            {command: "getTranscription"},
+            function(response) {
+                text.innerText = response;
+            }
+        );
     })();
     true;
 }
