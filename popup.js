@@ -1,3 +1,10 @@
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.executeScript(
+        tabs[0].id,
+        { file: "transcription_section.js" }
+    );
+});
+
 const noSubtitles = document.getElementById("no-subtitles");
 noSubtitles.style.display = "none";
 
