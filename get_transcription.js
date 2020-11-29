@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener(
         }
         return true;
     }
-)
+);
 
 async function getTranscription(url) {
     const transcriptionUrl = new URL('test', 'https://virtserver.swaggerhub.com/DoomInAJar/Transcription/1.0.0/transcriptions/');
