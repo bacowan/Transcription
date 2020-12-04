@@ -44,13 +44,6 @@ function AddTranscriptionSection(textArea) {
     document.addEventListener("mouseup", resizeEnd);
     iframe.contentDocument.body.addEventListener("mouseup", resizeEnd);
 
-    chrome.runtime.sendMessage(
-        {command: "getTranscription"},
-        function(response) {
-            textArea.innerText = response;
-        }
-    );
-
     function resizeStart(e) {
         e.preventDefault();
         document.addEventListener("mousemove", doResizeDoc);
